@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecallGPT</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="logo-icon">🧠</span>
+                <span class="logo-text">RecallGPT</span>
+            </div>
+            <button class="new-chat-btn" onclick="showNewThreadModal()">
+                <span>+</span> New chat
+            </button>
+        </div>
+
+        <div class="conversations-list" id="conversationsList">
+            <div class="loading-conversations">Loading conversations...</div>
+        </div>
+
+        <div class="sidebar-footer">
+            <button class="footer-btn" onclick="showSettings()">
+                <span>⚙️</span> Settings
+            </button>
+            <button class="footer-btn" onclick="showAnalytics()">
+                <span>📊</span> Analytics
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- API Key Setup (shown first time) -->
+        <div class="api-key-setup" id="apiKeySetup">
+            <div class="setup-card">
+                <div class="setup-icon">🔑</div>
+                <h2>Welcome to RecallGPT</h2>
+                <p>Enter your API key to get started</p>
+                <div class="api-key-input">
+                    <input type="text" id="apiKeyInput" placeholder="recallgpt_..." />
+                    <button onclick="setApiKey()">Continue</button>
+                </div>
+                <p class="setup-help">
+                    Don't have a key? <a href="#" onclick="generateApiKey(); return false;">Generate one</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Chat Interface -->
+        <div class="chat-interface" id="chatInterface" style="display: none;">
+            <!-- Chat Header -->
+            <header class="chat-header">
+                <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+                <h1 class="chat-title" id="chatTitle">RecallGPT</h1>
+                <div class="header-actions">
+                    <button class="icon-btn" onclick="toggleDarkMode()" title="Toggle theme">🌙</button>
+                </div>
+            </header>
+
+            <!-- Messages Container -->
+            <div class="messages-container" id="messagesContainer">
+                <div class="empty-state">
+                    <div class="empty-icon">💬</div>
+                    <h2>How can I help you today?</h2>
+                    <p>Start a conversation or select an existing one from the sidebar</p>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-area">
+                <div class="input-container">
+                    <textarea 
+                        id="messageInput" 
+                        placeholder="Ask anything..."
+                        rows="1"
+                        onkeydown="handleKeyPress(event)"
+                        oninput="autoResize(this)"
+                    ></textarea>
+                    <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M3 10L17 3L10 17L8 11L3 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="input-footer">
+                    <span class="input-hint">Shift + Enter for new line</span>
+                    <span class="token-count" id="tokenCount"></span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="/static/server.js"></script>
+</body>
+</html>

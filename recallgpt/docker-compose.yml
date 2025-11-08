@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  recallgpt:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./recallgpt.db:/app/recallgpt.db
+      - ./retrieval_logs.jsonl:/app/retrieval_logs.jsonl
+    environment:
+      - DATABASE_URL=recallgpt.db
+      - API_PORT=8000
+    restart: unless-stopped
