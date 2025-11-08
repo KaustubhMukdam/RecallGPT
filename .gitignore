@@ -1,3 +1,112 @@
-files
-venv
-ollama_example.py
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Database
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+retrieval_logs.jsonl
+analytics_report.txt
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# API Keys
+api_keys.json
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Model Cache
+.cache/
+models/
+*.h5
+*.pkl
+*.bin
+
+# Temporary files
+*.tmp
+*.bak
+temp/
+tmp/
+
+# FastAPI
+*.db-shm
+*.db-wal
+
+# Docker
+*.log
+docker-compose.override.yml
+
+# Node (if frontend expanded)
+node_modules/
+package-lock.json
+
+test_ai_ml_dl_recallgpt.py
+api_keys.json
+data_migration.py
+retrieval_logs.jsonl
+test_ai_ml_dl.db
+test_api.py
+test_current_recallgpt.py
+test_hybrid_retrieval.db
+test_hybrid_retrieval.py
+test_logging_analytics.py
+test_logging_analytics.db
+test_recallgpt.py
+test_recallgpt.db
+test_token_counting.py
+test_token_counting.db
